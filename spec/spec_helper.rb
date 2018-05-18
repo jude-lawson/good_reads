@@ -14,6 +14,19 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+  config.before :each do
+    @book1 = Book.create!(title: 'The Hobbit')
+    @book2 = Book.create!(title: 'Cosmos')
+
+    @user1 = User.create!(name: 'User 1')
+    @user2 = User.create!(name: 'User 2')
+
+    @book1.reviews.create!(title: 'Great Book', body:'Seriously, what a great book.', rating: '3', user_id: @user1.id)
+    @book1.reviews.create!(title: 'Superb Book', body:'Seriously, what a superb book.', rating: '4', user_id: @user2.id)
+
+    @book2.reviews.create!(title: 'Fantastic Book', body:'Seriously, what a fantastic book.', rating: '4', user_id: @user1.id)
+    @book2.reviews.create!(title: 'Wonderful Book', body:'Seriously, what a wonderful book.', rating: '5', user_id: @user2.id)
+  end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
