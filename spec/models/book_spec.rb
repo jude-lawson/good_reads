@@ -18,13 +18,13 @@ RSpec.describe Book do
 
     describe '.highest_rating' do
       it 'should return the highest rating' do
-        expect(@book1.highest_rating).to eq(@book1.reviews.last.rating)
+        expect(@book1.highest_review.rating).to eq(@book1.reviews.last.rating)
       end
     end
     
     describe '.lowest_rating' do
       it 'should return the lowest rating' do
-        expect(@book1.lowest_rating).to eq(@book1.reviews.first.rating)
+        expect(@book1.lowest_review.rating).to eq(@book1.reviews.first.rating)
       end
     end
   end

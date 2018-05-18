@@ -2,7 +2,9 @@
 
 <h2 id="average-rating"><%= @average_rating %></h2>
 <p>Highest rating: <%= @highest_rating %></p>
+<p>Review: <%= @highest_review %>
 <p>Lowest rating: <%= @lowest_rating %></p>
+<p>Review: <%= @lowest_review %>
 
 <% @reviews.each do |review| %>
   <h3>Review by <%= review.user.name %></h3>
